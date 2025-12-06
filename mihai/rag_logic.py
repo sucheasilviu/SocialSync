@@ -22,7 +22,7 @@ class SocialSyncAgent:
     def __init__(self):
         self.context_memory = ""
         self.asked_questions = [] 
-        self.max_retries = 3 # How many extra questions to ask before forcing a result
+        self.max_retries = 3 
 
     def get_logistics_question(self, logistic_type):
         """Retrieves specific Logistics card."""
@@ -42,6 +42,7 @@ class SocialSyncAgent:
 
     def get_personality_question(self, user_input):
         """Finds a NEW question to ask."""
+        # Use a broad search to find relevant tribes
         results = vector_db.similarity_search(f"Tribe keywords: {user_input}", k=10)
         
         for doc in results:
@@ -53,43 +54,44 @@ class SocialSyncAgent:
                     parts = content.split("Next Question:")
                     question = parts[1].strip().split("\n")[0].replace('"', '')
                     
-                    # CRITICAL: Only return unique questions
                     if question not in self.asked_questions:
                         self.asked_questions.append(question)
                         return question
                 except: continue
-        return None
+        
+        # Fallback question if DB runs dry
+        return "Do you prefer high-energy social events or quiet, intimate gatherings?"
 
     def retrieve_events(self, full_context, k=3):
         results = vector_db.similarity_search(f"Event details: {full_context}", k=k)
         events = []
         for doc in results:
-            # Only accept actual Events
             if "Event:" in doc.page_content:
                 events.append(doc.page_content)
         return events
 
     def force_broad_search(self, full_context):
-        """
-        Emergency method: If specific search fails, we search BROADLY.
-        """
-        # FIX: Increased k to 50 to ensure we dig deep enough to find Events
-        # mixed in with all the Profiles.
+        """Emergency broad search."""
         results = vector_db.similarity_search(full_context, k=50)
         events = []
         for doc in results:
             if "Event:" in doc.page_content:
                 events.append(doc.page_content)
         
-        # If we found events, return top 2
-        if events:
-            return events[:2]
-        
-        # ULTIMATE FALLBACK: If still nothing, just grab ANY event from DB
-        # (This guarantees the demo never shows "No Results")
-        fallback = vector_db.similarity_search("Event:", k=5)
-        fallback_events = [doc.page_content for doc in fallback if "Event:" in doc.page_content]
-        return fallback_events[:2]
+        if not events:
+            # Absolute fallback
+            fallback = vector_db.similarity_search("Event:", k=5)
+            return [doc.page_content for doc in fallback if "Event:" in doc.page_content][:2]
+            
+        return events[:2]
+
+    def extract_category(self, event_text):
+        """Helper to check consistency."""
+        try:
+            match = re.search(r"Category:\s*(.*)", event_text)
+            if match: return match.group(1).strip()
+        except: return "Unknown"
+        return "Unknown"
 
     def pretty_print_event(self, raw_text, rank):
         lines = raw_text.split('\n')
@@ -145,51 +147,66 @@ class SocialSyncAgent:
                 ans = input("\n👤 YOU: ")
                 self.context_memory += f" {ans}"
 
-        # --- PHASE 2: PERSISTENCE LOOP ---
+        # --- PHASE 2: CONFIDENCE & REFINEMENT LOOP ---
         retries = 0
         final_events = []
 
         while True:
             print("\n" + "▒"*60)
-            print("🏁  CALCULATING MATCHES...")
+            print("🏁  CHECKING MATCH CONFIDENCE...")
             print("▒"*60)
 
-            # Try to find events
+            # 1. Get Events
             final_events = self.retrieve_events(self.context_memory, k=2)
 
-            # SUCCESS CHECK: Did we find anything?
-            if len(final_events) > 0:
-                print(f"   [DEBUG: Found {len(final_events)} perfect matches!]")
-                break # We are done!
+            # 2. Check if we have results
+            if len(final_events) < 1:
+                print("   [DEBUG: 0 Matches found. Needs refinement.]")
+                is_confident = False
             
-            # FAILURE HANDLING
-            retries += 1
-            if retries > self.max_retries:
-                print("\n⚠️  [System: Strict search yielded 0 results. Forcing Broad Search...]")
-                final_events = self.force_broad_search(self.context_memory)
+            # 3. Check Consistency (Do the categories match?)
+            elif len(final_events) >= 2:
+                cat1 = self.extract_category(final_events[0])
+                cat2 = self.extract_category(final_events[1])
+                print(f"   [DEBUG: Match 1 is '{cat1}', Match 2 is '{cat2}']")
+                
+                if cat1 == cat2:
+                    print("   [DEBUG: Confidence High. Categories Match.]")
+                    is_confident = True
+                else:
+                    print("   [DEBUG: Confidence Low. Mixed Categories.]")
+                    is_confident = False
+            else:
+                # Only 1 result found, pretty confident by default
+                is_confident = True
+
+            # 4. DECISION: Stop or Ask?
+            if is_confident:
+                break # Exit Loop
+            
+            if retries >= self.max_retries:
+                print("\n⚠️  [System: Max retries reached. Forcing best available matches...]")
+                if not final_events:
+                    final_events = self.force_broad_search(self.context_memory)
                 break
-            
-            # If we are here, we need to ask another question
-            print(f"\n   [DEBUG: No matches found. Refining Search (Attempt {retries}/{self.max_retries})...]")
+
+            # 5. ASK FOLLOW-UP
+            retries += 1
+            print(f"\n   [DEBUG: Asking clarification question ({retries}/{self.max_retries})...]")
             time.sleep(1)
             
             new_q = self.get_personality_question(self.context_memory)
             
-            if new_q:
-                print(f"\n🤖 SOCIALSYNC: I'm having trouble finding an exact match. Let me ask: \n   {new_q}")
-                ans = input("\n👤 YOU: ")
-                self.context_memory += f" {ans}"
-            else:
-                print("   [System: No more questions available. Forcing result.]")
-                final_events = self.force_broad_search(self.context_memory)
-                break
+            print(f"\n🤖 SOCIALSYNC: I want to be sure I find the right fit. \n   {new_q}")
+            ans = input("\n👤 YOU: ")
+            self.context_memory += f" {ans}"
 
         # --- SHOW RESULTS ---
         if final_events:
             for i, event in enumerate(final_events):
                 self.pretty_print_event(event, i+1)
         else:
-            print("\n❌ No matching events found in the database. (Try adding more Event Data)")
+            print("\n❌ System Error: No events could be retrieved.")
 
 if __name__ == "__main__":
     agent = SocialSyncAgent()
