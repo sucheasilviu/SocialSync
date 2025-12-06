@@ -1,0 +1,97 @@
+import sqlite3
+import requests
+from bs4 import BeautifulSoup
+import os
+import time
+
+# --- CONFIGURARE ---
+FOLDER_TEXTE = "data_raw"
+NUME_DB = "events.db"
+
+# LISTA URL-uri REALE (Pune aici link-uri către articole despre evenimente/hobby-uri)
+urls_de_procesat = [
+    "https://www.zilesinopti.ro/articole/top-10-restaurante-bucuresti/", 
+    "https://carturesti.ro/blog/recomandari-de-carti-pentru-vacanta/",
+    "https://www.onevent.ro/orase/bucuresti/",
+]
+
+# DATE FIXE PENTRU SQL (Astea sunt sigure pentru Demo-ul de "Cât costă?")
+# Chiar dacă AI-ul citește de pe net, când userul întreabă de preț, 
+# sistemul va căuta în această listă "sigură".
+sql_mock_data = [
+    ("Atelier Ceramica", 150, "2023-12-01 18:00", 10, "Artă"),
+    ("Club Alergare", 0, "2023-12-02 09:00", 50, "Sport"),
+    ("Concert Jazz", 200, "2023-12-03 20:00", 5, "Muzică"),
+    ("Seara Boardgames", 25, "2023-12-04 19:00", 30, "Social")
+]
+
+def setup_environment():
+    # 1. Creare Folder
+    if not os.path.exists(FOLDER_TEXTE):
+        os.makedirs(FOLDER_TEXTE)
+        print(f"[SETUP] Folder '{FOLDER_TEXTE}' pregătit.")
+
+    # 2. Creare Bază de Date SQL
+    conn = sqlite3.connect(NUME_DB)
+    cursor = conn.cursor()
+    cursor.execute("DROP TABLE IF EXISTS evenimente")
+    cursor.execute("""
+        CREATE TABLE evenimente (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nume_eveniment TEXT,
+            pret REAL,
+            data_ora TEXT,
+            locuri_disponibile INTEGER,
+            categorie TEXT
+        )
+    """)
+    
+    # 3. Populare SQL
+    for item in sql_mock_data:
+        cursor.execute("INSERT INTO evenimente (nume_eveniment, pret, data_ora, locuri_disponibile, categorie) VALUES (?, ?, ?, ?, ?)", item)
+    
+    conn.commit()
+    conn.close()
+    print(f"[SETUP] Baza de date '{NUME_DB}' a fost creată și populată.")
+
+def scrape_web_data():
+    print("\n--- Încep descărcarea de pe internet (RAG Data) ---")
+    
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0'}
+    
+    for url in urls_de_procesat:
+        try:
+            print(f"Scrape: {url}")
+            response = requests.get(url, headers=headers, timeout=10)
+            
+            if response.status_code == 200:
+                soup = BeautifulSoup(response.content, 'html.parser')
+                
+                # Luăm titlul
+                titlu = soup.find('h1')
+                titlu_text = titlu.get_text().strip() if titlu else "Articol_Web"
+                
+                # Luăm paragrafele
+                text_content = f"Sursa: {url}\nTitlu: {titlu_text}\n\n"
+                paragrafe = soup.find_all('p')
+                for p in paragrafe:
+                    if len(p.get_text()) > 50:
+                        text_content += p.get_text().strip() + "\n"
+                
+                # Salvăm fișierul
+                nume_fisier = "".join([c if c.isalnum() else "_" for c in titlu_text[:30]]) + ".txt"
+                cale = os.path.join(FOLDER_TEXTE, nume_fisier)
+                
+                with open(cale, "w", encoding="utf-8") as f:
+                    f.write(text_content)
+                print(f"   -> Salvat: {nume_fisier}")
+                
+            time.sleep(1) # Pauză mică
+            
+        except Exception as e:
+            print(f"   [!] Eroare la {url}: {e}")
+
+if __name__ == "__main__":
+    setup_environment()
+    scrape_web_data()
+    print("\n[GATA] Studentul 1 a terminat! Ai date SQL și date Web.")
