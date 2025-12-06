@@ -8,7 +8,7 @@ from openai import OpenAI
 
 # --- CONFIGURATION ---
 # PLEASE PUT YOUR API KEY HERE
-API_KEY = "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" 
+API_KEY =""
 
 DATA_FOLDER = "data_raw"
 DB_NAME = "events.db"
@@ -226,4 +226,5 @@ if __name__ == "__main__":
             email_addr = input("Tribes AI: Sure, what is your email? ")
             send_email_simulation(email_addr)
         else:
+
             print(f"Tribes AI: {execute_query_and_respond(user)}")
