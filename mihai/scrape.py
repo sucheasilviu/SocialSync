@@ -22,8 +22,9 @@ OUTPUT_TXT_FILE = os.path.join(DATA_FOLDER, "scraped_events.txt")
 # LINKS TO SCRAPE
 urls_to_process = [
     "https://www.iabilet.ro/bilete-in-bucuresti/",
-    "https://zilesinopti.ro/evenimente-bucuresti/concerte-bucuresti/",
-    "https://www.onevent.ro/orase/bucuresti/",
+    "https://zilesinopti.ro/evenimente-bucuresti/",
+    "https://ticketstore.ro/ro/oras/Bucuresti",
+    "https://berariah.ro/",
 ]
 
 client = OpenAI(api_key=API_KEY)
