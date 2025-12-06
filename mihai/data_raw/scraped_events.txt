@@ -625,17 +625,6 @@ Source: https://www.onevent.ro/evenimente/the-sound-of-a-vintage-christmas-2/
 
 ------------------------------------------------
 
-Event: Latin Fusion Congress - Weekend 2 - 20-22 September, Bucharest
-Category: Concert,Dans,Festival
-Description: Fusion dance congress.
-Target Audience: General.
-Date: 2025-12-24 18:00
-Location: Palace of the Parliament
-Cost: Free / Check Link
-Source: https://www.onevent.ro/evenimente/latin-fusion-congress-weekend-2-20-22-september-bucharest/
-
-------------------------------------------------
-
 Event: Revelion Balkanic 2026
 Category: Concert,Revelion
 Description: New Year's Eve celebration.
