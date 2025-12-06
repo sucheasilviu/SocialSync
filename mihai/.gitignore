@@ -4,9 +4,6 @@
 # Python virtual environment
 venv/
 
-# ChromaDB database files
-chroma_db/
-
 # Python cache files
 __pycache__/
 *.pyc

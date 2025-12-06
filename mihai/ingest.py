@@ -3,16 +3,22 @@ import shutil
 import re
 from dotenv import load_dotenv
 from langchain_community.document_loaders import TextLoader
-from langchain_huggingface import HuggingFaceEmbeddings
+# CHANGED: Import OpenAI Embeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 
 load_dotenv(dotenv_path="./.env")
+
+# Ensure API Key is present
+if not os.getenv("OPENAI_API_KEY"):
+    raise ValueError("ERROR: OPENAI_API_KEY not found in .env file")
+
 DATA_PATH = "./data_raw"
 DB_PATH = "./chroma_db"
 
 def ingest_data():
-    print("🔄 SOCIALSYNC: Re-indexing Memory (Dual Mode)...")
+    print("🔄 SOCIALSYNC: Re-indexing Memory (Dual Mode - OpenAI Powered)...")
 
     # 1. Clear old database
     if os.path.exists(DB_PATH):
@@ -21,6 +27,10 @@ def ingest_data():
     documents = []
     
     # 2. Iterate through all files in data_raw
+    if not os.path.exists(DATA_PATH):
+        print(f"❌ Error: Directory '{DATA_PATH}' not found.")
+        return
+
     for filename in os.listdir(DATA_PATH):
         file_path = os.path.join(DATA_PATH, filename)
         
@@ -55,7 +65,9 @@ def ingest_data():
         return
 
     print(f"💾 Saving {len(documents)} total memories to Database...")
-    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+    
+    # CHANGED: Using OpenAI Model
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
     
     Chroma.from_documents(
         documents=documents, 
