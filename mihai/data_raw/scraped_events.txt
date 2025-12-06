@@ -1,0 +1,748 @@
+Event: Acces General Expoziție | Întâlniri. Sau cum se naște o lume nouă
+Category: Expoziție
+Description: O expoziție emoționantă deschisă publicului.
+Target Audience: General.
+Date: 2025-10-31 00:00
+Location: La Mița Biciclista Stabiliment Creativ
+Cost: 0 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: Vizită Ghidată Expoziție | Întâlniri. Sau cum se naște o lume nouă
+Category: Expoziție
+Description: O expoziție emoționantă deschisă publicului.
+Target Audience: General.
+Date: 2025-10-31 00:00
+Location: La Mița Biciclista Stabiliment Creativ
+Cost: 0 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: Winter cult & Chaos weekend - Magie gotică, comedie cult și Crăciun alternativ
+Category: Festival
+Description: Magia iernii cu emoție, comedie și fantezie.
+Target Audience: General.
+Date: 2025-12-05 00:00
+Location: Cinema Europa
+Cost: 15 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: Balkanique Party • Heavy Yard
+Category: Party
+Description: Energia pură a tehnomanelelor!
+Target Audience: General.
+Date: 2025-12-06 00:00
+Location: Heavy Yard
+Cost: 53.03 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: Cosmin Lupu and friends | Concert acustic exclusiv - piese noi in premiera
+Category: Concert
+Description: Concert acustic cu piese noi.
+Target Audience: General.
+Date: 2025-12-06 00:00
+Location: Encore
+Cost: 53.03 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: Petrecerea de Craciun a lui Pettson si Findus
+Category: Teatru
+Description: Spectacol dedicat sărbătorilor.
+Target Audience: General.
+Date: 2025-12-06 00:00
+Location: Teatrul Coquette
+Cost: 0 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: Augustin - Magicianul Copiilor
+Category: Teatru
+Description: O oră plină de zâmbete și uimire.
+Target Audience: General.
+Date: 2025-12-06 00:00
+Location: Sala Gloria
+Cost: 0 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: Aventurile lui Pingolino
+Category: Teatru
+Description: Poveste despre prietenia dintre Pingolino și Tigruțul.
+Target Audience: General.
+Date: 2025-12-06 00:00
+Location: La Mama - Clubul Țăranului
+Cost: 0 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: LumiLand - Miracol de Crǎciun - Petrecerea Spiriduşilor LumiLunzi
+Category: Teatru
+Description: Petrecerea Spiriduşilor LumiLunzi.
+Target Audience: General.
+Date: 2025-12-06 00:00
+Location: Lumiland - Teatru pentru copii
+Cost: 0 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: Stand-up Comedy cu Teo, Costel, Mihai Bobonete - Gabi Dumitriu
+Category: Stand-up
+Description: O seară de stand-up comedy.
+Target Audience: General.
+Date: 2025-12-06 00:00
+Location: Club 99
+Cost: 0 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: Oscar @ Apa & Stefan III - 5 Years
+Category: Concert
+Description: Sărbătorim 5 ani de la lansarea albumelor.
+Target Audience: General.
+Date: 2025-12-06 00:00
+Location: Arenele Romane
+Cost: 250 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: Baschet: CSA Steaua Sharks – CSM Tg. Jiu
+Category: Sport
+Description: Meci intens din Etapa a9-a a Cupei României.
+Target Audience: General.
+Date: 2025-12-06 00:00
+Location: Sala de Sport 'Mihai Viteazul'
+Cost: 15 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: Crăciunul lui Nicholas
+Category: Festival
+Description: Ediția a IV-a a Crăciunului lui Nicholas.
+Target Audience: General.
+Date: 2025-12-06 00:00
+Location: Sala Dalles
+Cost: 0 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: Alifantis & FragileBand – Poveste de iarnă – Un concert de Moș Niculae
+Category: Concert
+Description: Concert de Moș Niculae.
+Target Audience: General.
+Date: 2025-12-06 00:00
+Location: Teatrul National Bucuresti
+Cost: 0 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: Sindrofia Mahamour nr. 10 cu Panseluța și Sorin
+Category: Party
+Description: Seară cu Mahamour.
+Target Audience: General.
+Date: 2025-12-06 19:00
+Location: True Club
+Cost: 127.26 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: Magia unei chitare. Recital Maxim Belciug
+Category: Concert
+Description: Recital extraordinar de chitară.
+Target Audience: General.
+Date: 2025-12-06 00:00
+Location: Teatrul Coquette
+Cost: 0 RON
+Source: https://www.iabilet.ro/bilete-in-bucuresti/
+
+------------------------------------------------
+
+Event: Cei trei purceluşi
+Category: Theater
+Description: A children's theater performance.
+Target Audience: General.
+Date: 2025-12-06 10:00
+Location: Teatrul Țăndărică
+Cost: 0 RON
+Source: https://zilesinopti.ro/evenimente-bucuresti/
+
+------------------------------------------------
+
+Event: Alertă în Laponia
+Category: Theater
+Description: A children's theater performance.
+Target Audience: General.
+Date: 2025-12-06 11:00
+Location: Teatrul Ion Creangă
+Cost: 0 RON
+Source: https://zilesinopti.ro/evenimente-bucuresti/
+
+------------------------------------------------
+
+Event: Zaharașka și zăpada uitată
+Category: Theater
+Description: A children's theater performance.
+Target Audience: General.
+Date: 2025-12-06 12:00
+Location: Teatrul de Artă București
+Cost: 0 RON
+Source: https://zilesinopti.ro/evenimente-bucuresti/
+
+------------------------------------------------
+
+Event: Închide ochii și ai să vezi mai bine
+Category: Theater
+Description: A theatrical performance.
+Target Audience: General.
+Date: 2025-12-06 12:00
+Location: Teatrul de Comedie – Sala Studio
+Cost: 0 RON
+Source: https://zilesinopti.ro/evenimente-bucuresti/
+
+------------------------------------------------
+
+Event: Visul unei nopți de vară
+Category: Theater
+Description: A classic Shakespearean play.
+Target Audience: General.
+Date: 2025-12-06 16:00
+Location: Sala Gloria
+Cost: 0 RON
+Source: https://zilesinopti.ro/evenimente-bucuresti/
+
+------------------------------------------------
+
+Event: Femei bune pentru bărbați nebuni
+Category: Theater
+Description: A comedic theatrical performance.
+Target Audience: General.
+Date: 2025-12-06 16:30
+Location: Teatrul Roșu
+Cost: 0 RON
+Source: https://zilesinopti.ro/evenimente-bucuresti/
+
+------------------------------------------------
+
+Event: Milionul, nepoatele și milionara
+Category: Theater
+Description: A theatrical performance by Ken Ludwig.
+Target Audience: General.
+Date: 2025-12-06 18:00
+Location: Teatrul Elisabeta
+Cost: 0 RON
+Source: https://zilesinopti.ro/evenimente-bucuresti/
+
+------------------------------------------------
+
+Event: Oscar | Apa & Stefan III – 5 Years
+Category: Concert
+Description: A special concert celebrating 5 years.
+Target Audience: General.
+Date: 2025-12-06 18:00
+Location: Arenele Romane
+Cost: 0 RON
+Source: https://zilesinopti.ro/evenimente-bucuresti/
+
+------------------------------------------------
+
+Event: Crăciunul lui Nicholas
+Category: Concert
+Description: A Christmas-themed concert.
+Target Audience: General.
+Date: 2025-12-06 18:30
+Location: Sala Dalles
+Cost: 0 RON
+Source: https://zilesinopti.ro/evenimente-bucuresti/
+
+------------------------------------------------
+
+Event: Spărgătorul de nuci
+Category: Ballet
+Description: A classic ballet performance.
+Target Audience: General.
+Date: 2025-12-06 18:30
+Location: Opera Națională București
+Cost: 0 RON
+Source: https://zilesinopti.ro/evenimente-bucuresti/
+
+------------------------------------------------
+
+Event: Mahamour
+Category: Concert
+Description: A live music performance.
+Target Audience: General.
+Date: 2025-12-06 19:00
+Location: True Club
+Cost: 0 RON
+Source: https://zilesinopti.ro/evenimente-bucuresti/
+
+------------------------------------------------
+
+Event: Recital de pian la patru mâini
+Category: Concert
+Description: A piano recital performance.
+Target Audience: General.
+Date: 2025-12-06 19:00
+Location: Ateneul Român
+Cost: 0 RON
+Source: https://zilesinopti.ro/evenimente-bucuresti/
+
+------------------------------------------------
+
+Event: Alifantis & FragileBand – Poveste de iarnă
+Category: Concert
+Description: A winter-themed concert.
+Target Audience: General.
+Date: 2025-12-06 19:00
+Location: TNB
+Cost: 0 RON
+Source: https://zilesinopti.ro/evenimente-bucuresti/
+
+------------------------------------------------
+
+Event: Dirty Disco w/ Eugen Rădescu
+Category: Party
+Description: A lively party event.
+Target Audience: General.
+Date: 2025-12-06 23:00
+Location: Control Club
+Cost: 0 RON
+Source: https://zilesinopti.ro/evenimente-bucuresti/
+
+------------------------------------------------
+
+Event: COFFeEAST 2025 SPECIAL X’MAS EDITION
+Category: Festival
+Description: Special Christmas edition of COFFeEAST.
+Target Audience: General.
+Date: 2025-12-05 12:00
+Location: Unirea Shopping Center
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Umoja Dance Festival Romania
+Category: Festival
+Description: Dance festival celebrating cultural diversity.
+Target Audience: General.
+Date: 2025-12-05 21:00
+Location: Cafeneaua Actorilor
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Dichisar de Iarnă
+Category: Târg
+Description: Winter fair with various activities.
+Target Audience: General.
+Date: 2025-12-06 10:00
+Location: Impact Hub Bucharest
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Alifantis & FragileBand
+Category: Concert
+Description: Concert featuring Alifantis and FragileBand.
+Target Audience: General.
+Date: 2025-12-06 19:00
+Location: Teatrul Naţional Bucureşti
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Concert Extraordinar de Crăciun Ștefan Bănică
+Category: Concert
+Description: Extraordinary Christmas concert by Ștefan Bănică.
+Target Audience: General.
+Date: 2025-12-06 19:30
+Location: Sala Palatului
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Bairam în București by Wayback
+Category: Petrecere
+Description: Party event featuring Wayback.
+Target Audience: General.
+Date: 2025-12-06 22:00
+Location: Senat.galerie
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: TEDDYBEAR x 13th Years Anniversary
+Category: Petrecere
+Description: Anniversary party for TEDDYBEAR.
+Target Audience: General.
+Date: 2025-12-06 22:00
+Location: Guava
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Bookisit #27 ediție de sărbătoare
+Category: Târg
+Description: Holiday edition of the Bookisit event.
+Target Audience: General.
+Date: 2025-12-07 10:00
+Location: Urban Hub
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Manele All Star 2025
+Category: Concert
+Description: All Star concert featuring popular manele artists.
+Target Audience: General.
+Date: 2025-12-07 18:00
+Location: Laminor Arena
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Atelier Magic de Craciun
+Category: Workshop
+Description: Christmas magic workshop for relaxation and creativity.
+Target Audience: General.
+Date: 2025-12-09 18:00
+Location: Timp pentru Tine
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Concert Regal de Crăciun
+Category: Concert
+Description: Regal Christmas concert at the cathedral.
+Target Audience: General.
+Date: 2025-12-10 20:00
+Location: Catedrala Sf. Iosif
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: ȘARAIMANIC Roda del Mundo XVI: România & Mali
+Category: Concert
+Description: Concert featuring artists from Romania and Mali.
+Target Audience: General.
+Date: 2025-12-10 20:00
+Location: Control Club
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Concert de colinde "CE VEDERE MINUNATĂ!"
+Category: Concert
+Description: Christmas carol concert at the National Palace of Children.
+Target Audience: General.
+Date: 2025-12-11 19:00
+Location: Palatul Naţional al Copiilor
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: COMA • Expirat • 11.12
+Category: Concert
+Description: Concert by the band COMA.
+Target Audience: General.
+Date: 2025-12-11 20:00
+Location: Hotel Novotel
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: APROAPE DE TINE - Împreună pentru pacienții cu Boală Parkinson
+Category: Educație
+Description: Event supporting Parkinson's disease patients.
+Target Audience: General.
+Date: 2025-12-12 12:00
+Location: Hotel Novotel
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: INVITAŢIE LA VALS - Concert în paşi de dans
+Category: Concert
+Description: Dance concert invitation.
+Target Audience: General.
+Date: 2025-12-12 19:00
+Location: Teatrul de Revista Constantin Tanase
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Alternosfera | Concert aniversar
+Category: Concert
+Description: Anniversary concert for Alternosfera.
+Target Audience: General.
+Date: 2025-12-12 20:00
+Location: Quantic
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Bazaar de Crăciun 2025
+Category: Târg de Craciun
+Description: Christmas bazaar with various vendors.
+Target Audience: General.
+Date: 2025-12-13 10:00
+Location: Victoria Hub
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: RAFTUL CU CADOURI - BOUNTY FAIR #61
+Category: Târg
+Description: Gift fair with various activities.
+Target Audience: General.
+Date: 2025-12-13 10:00
+Location: Biblioteca Națională
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Armenian Winter Pop-Up Market
+Category: Târg
+Description: Winter market featuring Armenian culture.
+Target Audience: General.
+Date: 2025-12-13 12:00
+Location: str. Armenească nr. 13
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: ctrl LIVE: The Raveonettes (DK)
+Category: Concert
+Description: Live concert by The Raveonettes.
+Target Audience: General.
+Date: 2025-12-13 20:00
+Location: Quantic
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Proiecție specială CRAVATA GALBENĂ
+Category: Film
+Description: Special screening of the film CRAVATA GALBENĂ.
+Target Audience: General.
+Date: 2025-12-15 19:00
+Location: Cinema Muzeul Țăranului
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: RICKY MARTIN LIVE 2025
+Category: Concert
+Description: Live concert by Ricky Martin.
+Target Audience: General.
+Date: 2025-12-16 19:00
+Location: Romexpo
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: ANDRA la București: Concert "Reverie"
+Category: Concert
+Description: Concert by Andra as part of her national tour.
+Target Audience: General.
+Date: 2025-12-16 19:30
+Location: Sala Palatului
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Concert pentru Artan - Invitați & Lansare de Vinil: Am cu ce
+Category: Concert
+Description: Concert for Artan with special guests.
+Target Audience: General.
+Date: 2025-12-17 19:00
+Location: Quantic
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Concert Kaz Hawkins
+Category: Concert
+Description: Concert by Kaz Hawkins.
+Target Audience: General.
+Date: 2025-12-18 19:00
+Location: Quantic Pub
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: BUCUREȘTI | MADRIGAL: CHRISTMAS mood
+Category: Concert
+Description: Christmas concert by the Madrigal choir.
+Target Audience: General.
+Date: 2025-12-18 19:00
+Location: Universitatea POLITEHNICA din București
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: BUCUREȘTI | MADRIGAL: CRĂCIUNUL FLORILOR
+Category: Concert
+Description: Concert celebrating Christmas flowers.
+Target Audience: General.
+Date: 2025-12-19 19:00
+Location: Universitatea POLITEHNICA din București
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Implant Pentru Refuz - Old School - New School
+Category: Concert
+Description: Anniversary concert for Implant Pentru Refuz.
+Target Audience: General.
+Date: 2025-12-19 19:00
+Location: Quantic
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: TRONOS - Concert de colinde
+Category: Concert
+Description: Christmas carol concert by TRONOS.
+Target Audience: General.
+Date: 2025-12-21 19:30
+Location: Centrul Metropolitan de Educație și Cultură „Ioan I. Dalles”
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: The Sound of a Vintage Christmas
+Category: Concert
+Description: Vintage Christmas concert at the Parliament.
+Target Audience: General.
+Date: 2025-12-21 20:15
+Location: Palatul Parlamentului
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Latin Fusion Congress - Weekend 2
+Category: Festival
+Description: Latin dance and music festival.
+Target Audience: General.
+Date: 2025-09-20 00:00
+Location: Palace of the Parliament
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Revelion Balkanic 2026
+Category: Revelion
+Description: New Year's Eve celebration with Balkan music.
+Target Audience: General.
+Date: 2025-12-31 00:00
+Location: Iris Ballroom
+Cost: 590 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: REVELION 2026 cu 3 Sud Est, Crina Matei și trupa Zebbra
+Category: Revelion
+Description: New Year's Eve party with popular artists.
+Target Audience: General.
+Date: 2025-12-31 00:00
+Location: Beraria H
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: REVELION 2026 SHOW BURLESQUE - CONNECT-R
+Category: Revelion
+Description: Burlesque show for New Year's Eve.
+Target Audience: General.
+Date: 2025-12-31 00:00
+Location: Calea Piscului, Oraselul Copiilor
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Revelionul Bal Mascat
+Category: Revelion
+Description: Masquerade ball for New Year's Eve.
+Target Audience: General.
+Date: 2025-12-31 00:00
+Location: Calea Piscului, Oraselul Copiilor
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Revelion 2026 în stil Mare în București
+Category: Revelion
+Description: Grand New Year's Eve celebration.
+Target Audience: General.
+Date: 2025-12-31 00:00
+Location: Taverna Marelui Paharnic
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+
+Event: Classic New Year's Eve 2026 @ Fabrica & B52 The Club
+Category: Revelion
+Description: Classic New Year's Eve party.
+Target Audience: General.
+Date: 2025-12-31 00:00
+Location: Strada 11 Iunie nr. 50
+Cost: 0 RON
+Source: https://www.onevent.ro/orase/bucuresti/
+
+------------------------------------------------
+

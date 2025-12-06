@@ -17,14 +17,12 @@ print("\n🔋 SOCIALSYNC: Powering up Agentic Core...")
 embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 vector_db = Chroma(persist_directory=DB_PATH, embedding_function=embeddings)
 
-# Initialize the LLM
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.7) 
 
 print("✅ SOCIALSYNC: Online.")
 
 class SocialSyncAgent:
     def __init__(self):
-        # UPDATED PROMPT: Added MISSION_COMPLETE instruction
         self.system_prompt = """
         You are SocialSync, an empathetic AI assistant helping lonely people find social events in Bucharest.
         
@@ -39,13 +37,10 @@ class SocialSyncAgent:
         When you have enough info, output exactly: "SEARCH_ACTION: [summary of preferences]"
         
         PHASE 3: CLOSING
-        After results are shown, the system will tell you. Then ask the user if they are happy with the matches.
-        - If they say YES/THANKS: Output exactly "MISSION_COMPLETE".
-        - If they say NO: Ask what they want to change.
-        
-        Keep it brief and friendly.
+        After results are shown, the system will tell you. Then ask the user if they are happy.
+        - If YES/THANKS: Output exactly "MISSION_COMPLETE".
+        - If NO: Ask what they want to change.
         """
-        
         self.chat_history = [SystemMessage(content=self.system_prompt)]
 
     def retrieve_events(self, search_query, k=3):
@@ -62,6 +57,7 @@ class SocialSyncAgent:
         info = {}
         for line in lines:
             if ": " in line:
+                # Limit split to 1 to handle URLs with colons (http://...)
                 key, val = line.split(": ", 1)
                 info[key.strip()] = val.strip()
 
@@ -70,6 +66,8 @@ class SocialSyncAgent:
         loc = info.get("Location", "TBD")
         cost = info.get("Cost", "Free")
         desc = info.get("Description", "")
+        # NEW: Extract Source URL
+        url = info.get("Source", "No Link Available")
         
         wrapped_desc = textwrap.fill(desc, width=50)
         indented_desc = wrapped_desc.replace('\n', '\n      ')
@@ -79,6 +77,7 @@ class SocialSyncAgent:
         print(f"   📅  WHEN:  {date}")
         print(f"   📍  WHERE: {loc}")
         print(f"   💰  COST:  {cost}")
+        print(f"   🔗  LINK:  {url}") # Now printing the URL
         print(f"   {'─'*50}")
         print(f"   📝  DETAILS:\n      {indented_desc}")
         print(f"   {'═'*50}\n")
@@ -92,22 +91,17 @@ class SocialSyncAgent:
         print("🤖 SOCIALSYNC: Hi! I'm here to connect you with your tribe. Tell me, what's on your mind?")
 
         while True:
-            # 1. Get User Input
             user_input = input("\n👤 YOU: ")
             if user_input.lower() in ['exit', 'quit']: break
             
             self.chat_history.append(HumanMessage(content=user_input))
-
-            # 2. Let the LLM Think
             print("   ⚙️  [SocialSync is thinking...]")
             
             ai_response_msg = llm.invoke(self.chat_history)
             ai_text = ai_response_msg.content
 
-            # --- CASE A: SEARCH ---
             if "SEARCH_ACTION:" in ai_text:
                 search_query = ai_text.split("SEARCH_ACTION:")[1].strip()
-                
                 print("\n" + "▒"*60)
                 print(f"🏁  AGENT DECISION: Searching for '{search_query}'...")
                 print("▒"*60)
@@ -118,15 +112,12 @@ class SocialSyncAgent:
                     for i, event in enumerate(events):
                         self.pretty_print_event(event, i+1)
                     
-                    # INJECT CONTEXT: Tell the AI we successfully showed results
                     self.chat_history.append(AIMessage(content="SEARCH_ACTION_EXECUTED"))
                     self.chat_history.append(SystemMessage(content="SYSTEM: Results showed to user. Ask them if they like these."))
                     
-                    # Force AI to speak immediately ("Do you like these?")
                     follow_up = llm.invoke(self.chat_history)
                     print(f"\n🤖 SOCIALSYNC: {follow_up.content}")
                     self.chat_history.append(follow_up)
-                    
                 else:
                     print("\n❌ No exact matches found. Searching broadly...")
                     broad_events = self.retrieve_events(search_query, k=50)
@@ -140,14 +131,12 @@ class SocialSyncAgent:
                     print(f"\n🤖 SOCIALSYNC: {follow_up.content}")
                     self.chat_history.append(follow_up)
 
-            # --- CASE B: MISSION COMPLETE ---
             elif "MISSION_COMPLETE" in ai_text:
                 print("\n" + "█"*60)
                 print("✨  SocialSync: Glad I could help! Go have fun!  ✨")
                 print("█"*60 + "\n")
-                break # Exit the loop
+                break 
 
-            # --- CASE C: CHAT ---
             else:
                 print(f"\n🤖 SOCIALSYNC: {ai_text}")
                 self.chat_history.append(ai_response_msg)
