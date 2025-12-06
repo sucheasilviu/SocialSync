@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { RefreshCw, Sparkles, Calendar, Users, MapPin } from 'lucide-react';
 
 const Sidebar = ({ onReset }) => {
+  const [location, setLocation] = useState('Detecting location...');
+
+  useEffect(() => {
+    // Fetch user's approximate location based on IP
+    fetch('https://ipapi.co/city/')
+      .then(response => response.text())
+      .then(cityName => {
+        if (cityName && cityName.trim() !== '') {
+          setLocation(cityName.trim());
+        } else {
+          setLocation('Location unavailable');
+        }
+      })
+      .catch(() => {
+        setLocation('Location unavailable');
+      });
+  }, []);
   return (
-    <div className="w-64 bg-gradient-to-b from-gray-800 to-gray-900 border-r border-gray-700 p-6 hidden md:block flex flex-col h-full">
+    <div className="w-64 bg-gradient-to-b from-gray-800 to-gray-900 border-r border-gray-700 p-6 hidden md:block flex flex-col h-full overflow-hidden">
       {/* Header */}
-      <div className="mb-12">
+      <div className="mb-12 flex-shrink-0">
         <h1 className="text-3xl font-bold text-white mb-4 flex items-center gap-2">
           SocialSync
           <span className="text-3xl">🤝</span>
@@ -40,16 +57,23 @@ const Sidebar = ({ onReset }) => {
       
       {/* Reset Button */}
       <div className="mt-auto pt-8 border-t border-gray-700">
+        {/* Location Display */}
+        <div className="bg-gray-700 bg-opacity-50 rounded-lg p-3 mb-4 border border-gray-600">
+          <div className="flex items-center gap-2">
+            <MapPin size={16} className="text-blue-400 flex-shrink-0" />
+            <div className="flex-1 min-w-0">
+              <p className="text-xs text-gray-400 uppercase tracking-wide">Your Location</p>
+              <p className="text-sm text-white font-medium truncate">{location}</p>
+            </div>
+          </div>
+        </div>
         <button 
           onClick={onReset}
           className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-700 to-blue-800 text-white py-3 rounded-lg hover:from-blue-800 hover:to-blue-900 transition-all shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
         >
           <RefreshCw size={20} /> 
-          <span className="font-medium text-base">Reset Chat</span>
+          <span className="font-medium text-base">New Chat</span>
         </button>
-        <p className="text-sm text-gray-500 text-center mt-3">
-          Start fresh with a new conversation
-        </p>
       </div>
     </div>
   );
