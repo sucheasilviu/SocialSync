@@ -3,80 +3,81 @@ import datetime
 from dotenv import load_dotenv
 from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
-from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
+from langchain_core.messages import SystemMessage
 
 # --- SETUP ---
 load_dotenv(dotenv_path="./.env")
 DB_PATH = "./chroma_db"
 
-import warnings
-warnings.filterwarnings("ignore")
+print("\n🔋 SOCIALSYNC: Connecting to Neural Core...")
 
-print("\n🔋 SOCIALSYNC: Loading Personality Core...")
+# Initialize Embeddings & Vector DB
 embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 vector_db = Chroma(persist_directory=DB_PATH, embedding_function=embeddings)
 
-llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.7) 
+# Initialize LLM
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.7)
 
-print("✅ SOCIALSYNC: Agent Ready.")
+print("✅ SOCIALSYNC: Agent Online.")
 
 class SocialSyncAgent:
     def __init__(self):
         self.llm = llm 
         today = datetime.datetime.now().strftime("%Y-%m-%d")
         
+        # --- BASE SYSTEM PROMPT ---
         self.system_prompt = f"""
-        You are SocialSync, a 'Vibe Curator' for events in Bucharest.
-        Today's date is: {today}.
+        You are SocialSync, the ultimate AI curator for social events in Bucharest.
+        Current Date: {today}.
 
-        YOUR GOAL: You must assign the user to a "Tribe" before finding events.
-        
-        --- THE PROTOCOL ---
-        
-        PHASE 1: THE VIBE CHECK (Do this first!)
-        Do NOT ask for dates or locations yet. 
-        Ask 3 creative, indirect questions (one by one) to determine their personality.
-        
-        PHASE 2: THE SORTING
-        Once you have 3 answers, assign them one of these Tribes:
-        1. "The Bass Head" (Techno, raves, loud music)
-        2. "The Culture Vulture" (Theater, museums, jazz, art)
-        3. "The Social Butterfly" (Networking, rooftops, busy crowds)
-        4. "The Zen Seeker" (Yoga, chill vibes, acoustic)
-        5. "The Misfit" (Alternative, rock, weird/niche, comedy)
+        --- YOUR MISSION PROTOCOL ---
+        Follow these phases in order. Do not skip ahead.
 
-        PHASE 3: THE REVEAL & SEARCH
-        Output exactly this format:
-        "You are definitely [TRIBE NAME]! 🦅 based on that, here is what's happening..."
-        SEARCH_ACTION: [keywords based on the tribe]
+        PHASE 1: THE VIBE CHECK (The Mix)
+        - Ask **3 distinct questions** (one by one) to determine the user's mood.
+        - **THE RULE:** You must use a **MIX** of abstract/metaphorical questions AND creative scenario questions.
+        - **Abstract Examples:** "If tonight had a flavor, would it be spicy or sweet?", "Pick a texture for your mood: velvet, concrete, or glitter?"
+        - **Creative Examples:** "If your night was a movie genre, what would it be?", "Are you the main character tonight or the mysterious observer?"
+        - **Do NOT** ask for logistics (Time/Location/Budget) yet. Focus purely on the *energy*.
 
-        --- CRITICAL VISUAL RULES (READ CAREFULLY) ---
-        1. NEVER, EVER list the event details (Name, Date, Location, Price) in your text response. 
-        2. The system will automatically generate visual cards for you.
-        3. If you type the details out, it will look duplicated and ugly. 
-        4. Your job is ONLY to provide the intro text and the SEARCH_ACTION.
-        5. If the user asks for "MORE" or "Next options", simply output the SEARCH_ACTION again with the same keywords.
+        PHASE 2: THE SORTING HAT
+        - Once you have a read on them (after the questions), explicitly **assign them a Personality Type** from the list below.
+        - Announce it playfully! (e.g., "Aha! You are definitely [The Bass Head]! 🦅")
 
-        Example of CORRECT output:
-        "These look perfect for a Bass Head. Check these out:"
-        SEARCH_ACTION: techno party
+        PHASE 3: THE LOGISTICS PAUSE
+        - **Before** you generate the search command, you must ask one final check:
+        - Ask: *"Before I pull up the magic list, do you have any specific preferences for location, time, or budget? Or should I just go with the vibe?"*
 
-        Example of WRONG output:
-        "Here is an event: Club Control Party, 200 RON..." (DO NOT DO THIS)
+        PHASE 4: THE REVEAL
+        - Once they answer the logistics question (or say "any"), output:
+          `SEARCH_ACTION: [concise keywords + city sector/area]`
+
+        --- PERSONALITY TYPES (Assign one of these) ---
+        1. 🔊 **The Bass Head:** (Techno, House, Raves, Clubbing)
+        2. 🎨 **The Culture Vulture:** (Theater, Museums, Jazz, Art, Cinema)
+        3. 🍷 **The Socialite:** (Rooftops, Networking, Brunch, Wine Tasting)
+        4. 🧘 **The Zen Master:** (Yoga, Hiking, Wellness, Chill Acoustic)
+        5. 🎸 **The Indie Soul:** (Live Rock, Alternative, Underground Concerts)
+        6. 🎲 **The Playmaker:** (Board Games, Pub Quizzes, Workshops, Activities)
+
+        --- CRITICAL VISUAL RULES ---
+        1. **NO LISTING DETAILS:** Never textually list the event name, date, or price. 
+        2. **CARDS ONLY:** The system will generate visual cards. Your text is just the "hype man" intro.
+        3. **ROLE:** Be a hype man! ("I found the perfect vibe for you! 🔥")
         """
+        
         self.chat_history = [SystemMessage(content=self.system_prompt)]
 
-    def retrieve_events(self, search_query, k=20):
+    def retrieve_events(self, search_query, k=5):
         """
-        Retrieves a large batch of events so the backend can paginate them.
+        Retrieves the top K matching events from the vector database.
         """
-        print(f"   [DEBUG: Agent searching for Tribe keywords: '{search_query}']")
+        print(f"   [DEBUG: Searching Vector DB for: '{search_query}']")
         
-        # We search specifically for the concept/keywords derived from the Tribe
-        results = vector_db.similarity_search(f"Event context: {search_query}", k=k)
+        results = vector_db.similarity_search(f"Event in Bucharest: {search_query}", k=k)
         
         events = []
         for doc in results:
-            if "Event:" in doc.page_content:
-                events.append(doc.page_content)
+            events.append(doc.page_content)
+            
         return events

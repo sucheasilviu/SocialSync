@@ -69,7 +69,7 @@ const Sidebar = ({ onReset }) => {
         </div>
         <button 
           onClick={onReset}
-          className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-700 to-blue-800 text-white py-3 rounded-lg hover:from-blue-800 hover:to-blue-900 transition-all shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
+          className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-lg hover:from-blue-500 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
         >
           <RefreshCw size={20} /> 
           <span className="font-medium text-base">New Chat</span>
